@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Chess board</title>
+    <style>
+      body{
+      text-align: center;
+      }
+      .cell{
+        height: 30px;
+        width: 30px;
+        border : 1.5px solid grey;
+        border-style: inset;
+      }
+      .blackcell{
+        background-color: black;
+      }
+      .whitecell{
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <span style="color:green; font-size:30px;" >GeeksforGeeks</span><br><br>
+    <script type="text/javascript">
+    // creating a center tag to center all the elements
+    var center = document.createElement('center');
+    // create a table create element
+    var ChessTable = document.createElement('table');
+    for (var i = 0; i < 8; i++){
+      // create a row
+      var tr = document.createElement('tr');
+      for (var j = 0; j < 8; j++){
+        // create a cell
+        var td = document.createElement('td');
+        // if sum of cell coordinates is even then color the cell white
+        if ((i + j) % 2 == 0){
+          //
+          td.setAttribute('class', 'cell whitecell');
+          tr.appendChild(td);
+        }
+        // if sum of cell coordinates is odd then color the cell black
+        else{
+          td.setAttribute('class', 'cell blackcell');
+          // append the cell to its row
+          tr.appendChild(td);
+        }
+      }
+      // append the row
+      ChessTable.appendChild(tr);
+    }
+    center.appendChild(ChessTable);
+    // modifiying table properties
+    ChessTable.setAttribute('cellspacing', '0');
+    ChessTable.setAttribute('width', '270px');
+    document.body.appendChild(center);
+    </script>
+    <br><br>
+  </body>
+</html>
